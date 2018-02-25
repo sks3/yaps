@@ -33,10 +33,15 @@ class BusinessCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+      nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
       thumbImageView.layer.cornerRadius = 3
       thumbImageView.clipsToBounds = true
     }
 
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    nameLabel.preferredMaxLayoutWidth = nameLabel.frame.size.width
+  }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
