@@ -19,7 +19,6 @@ class Business: NSObject {
     
     init(dictionary: NSDictionary) {
         name = dictionary["name"] as? String
-        
         let imageURLString = dictionary["image_url"] as? String
         if imageURLString != nil {
             imageURL = URL(string: imageURLString!)!

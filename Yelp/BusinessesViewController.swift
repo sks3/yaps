@@ -8,10 +8,12 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
   
   var businesses: [Business]!
+  
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var searchBar: UISearchBar!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -21,19 +23,21 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 135
     
-    Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
+    searchBar.delegate = self
+
+    Business.searchWithTerm(term: "", completion: { (businesses: [Business]?, error: Error?) -> Void in
       
       self.businesses = businesses
       self.tableView.reloadData()
-      if let businesses = businesses {
-        for business in businesses {
-          print(business.name!)
-          print(business.address!)
-        }
-      }
-      
+   //   if let businesses = businesses {
+   //     for business in businesses {
+   //       print(business.name!)
+   //       print(business.address!)
+   //     }
+   //   }
     }
     )
+    
     
     /* Example of Yelp search with more search options specified
      Business.searchWithTerm("Restaurants", sort: .distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: Error!) -> Void in
@@ -45,7 +49,22 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
      }
      }
      */
-    
+  }
+  
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    if let searchText = searchBar.text {
+      Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
+        self.businesses = businesses
+        self.tableView.reloadData()
+     //   if let businesses = businesses {
+     //     for business in businesses {
+     //       print(business.name!)
+     //       print(business.address!)
+     //     }
+     //   }
+      }
+      )
+    }
   }
   
   override func didReceiveMemoryWarning() {

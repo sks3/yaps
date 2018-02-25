@@ -16,7 +16,8 @@ class BusinessCell: UITableViewCell {
   @IBOutlet var addressLabel: UILabel!
   @IBOutlet var categoriesLabel: UILabel!
   @IBOutlet var reviewsCountLabel: UILabel!
-  @IBOutlet var distanceLabel: UILabel!  
+  @IBOutlet var distanceLabel: UILabel!
+  @IBOutlet var priceLabel: UILabel!
   
   var business: Business! {
     didSet {
@@ -27,6 +28,7 @@ class BusinessCell: UITableViewCell {
       reviewsCountLabel.text = "\(business.reviewCount!) Reviews"
       ratingsImageView.setImageWith(business.ratingImageURL!)
       distanceLabel.text = business.distance
+      
     }
   }
   

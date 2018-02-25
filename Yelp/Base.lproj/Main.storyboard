@@ -25,9 +25,18 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jdp-em-jlg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search for Businesses" id="7tb-Eh-54B">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="alphabet"/>
+                                    <scopeButtonTitles>
+                                        <string>Title</string>
+                                        <string>Title</string>
+                                    </scopeButtonTitles>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessCell" rowHeight="135" id="gI9-Tc-qaE" customClass="BusinessCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="135"/>
+                                        <rect key="frame" x="0.0" y="84" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gI9-Tc-qaE" id="jJo-Ia-TPF">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="134.5"/>
@@ -71,7 +80,7 @@
                                                     <color key="textColor" red="0.49265018907295266" green="0.49265018907295266" blue="0.49265018907295266" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4Y-7z-sGx">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$$" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4Y-7z-sGx">
                                                     <rect key="frame" x="346" y="31" width="17" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.49265018907295266" green="0.49265018907295266" blue="0.49265018907295266" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -87,7 +96,7 @@
                                             <constraints>
                                                 <constraint firstItem="2fo-kK-tjf" firstAttribute="top" secondItem="TZh-Rg-u5b" secondAttribute="bottom" constant="8" id="2V4-f2-VAV"/>
                                                 <constraint firstItem="TZh-Rg-u5b" firstAttribute="top" secondItem="ufa-cX-Gej" secondAttribute="bottom" constant="5" id="48W-nc-BvJ"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="2fo-kK-tjf" secondAttribute="bottom" constant="5" id="5pC-CV-tnj"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="2fo-kK-tjf" secondAttribute="bottom" constant="8" id="5pC-CV-tnj"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zi5-N4-SMh" secondAttribute="bottom" constant="15" id="630-ro-pSC"/>
                                                 <constraint firstItem="TZh-Rg-u5b" firstAttribute="top" secondItem="ufa-cX-Gej" secondAttribute="bottom" constant="5" id="BKq-PS-IMh"/>
                                                 <constraint firstItem="GON-Hp-dmu" firstAttribute="top" secondItem="jJo-Ia-TPF" secondAttribute="top" constant="9" id="Ke5-7l-uv1"/>
@@ -97,6 +106,7 @@
                                                 <constraint firstItem="4M3-z6-daA" firstAttribute="leading" secondItem="ufa-cX-Gej" secondAttribute="trailing" constant="16" id="SDq-ha-V2D"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="TZh-Rg-u5b" secondAttribute="trailing" constant="8" id="Teq-xT-tYD"/>
                                                 <constraint firstItem="TZh-Rg-u5b" firstAttribute="leading" secondItem="zi5-N4-SMh" secondAttribute="trailing" constant="18" id="XzX-yR-PRi"/>
+                                                <constraint firstItem="T4Y-7z-sGx" firstAttribute="trailing" secondItem="GON-Hp-dmu" secondAttribute="trailing" id="bH2-pz-kLc"/>
                                                 <constraint firstItem="GON-Hp-dmu" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Jst-Cw-EPg" secondAttribute="trailing" constant="41" id="ceG-hM-IER"/>
                                                 <constraint firstItem="ufa-cX-Gej" firstAttribute="leading" secondItem="zi5-N4-SMh" secondAttribute="trailing" constant="18" id="f7T-Xk-UHe"/>
                                                 <constraint firstAttribute="trailing" secondItem="GON-Hp-dmu" secondAttribute="trailing" constant="12" id="gwn-HH-hZF"/>
@@ -113,6 +123,7 @@
                                             <outlet property="categoriesLabel" destination="2fo-kK-tjf" id="oQ0-8J-zOO"/>
                                             <outlet property="distanceLabel" destination="GON-Hp-dmu" id="NcD-IE-GI3"/>
                                             <outlet property="nameLabel" destination="Jst-Cw-EPg" id="SSQ-t5-rhZ"/>
+                                            <outlet property="priceLabel" destination="T4Y-7z-sGx" id="Kb8-V1-2c2"/>
                                             <outlet property="ratingsImageView" destination="ufa-cX-Gej" id="xXT-7g-PHc"/>
                                             <outlet property="reviewsCountLabel" destination="4M3-z6-daA" id="mKI-8Y-Rfo"/>
                                             <outlet property="thumbImageView" destination="zi5-N4-SMh" id="WPh-yV-ERO"/>
@@ -135,6 +146,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Yelp Search Results" id="Y59-aM-3D9"/>
                     <connections>
+                        <outlet property="searchBar" destination="7tb-Eh-54B" id="og4-a6-LVZ"/>
                         <outlet property="tableView" destination="Jdp-em-jlg" id="HdB-v2-VO1"/>
                     </connections>
                 </viewController>
