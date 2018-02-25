@@ -11,9 +11,10 @@ import UIKit
 class BusinessesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
   
   var businesses: [Business]!
+
   
   @IBOutlet var tableView: UITableView!
-  @IBOutlet var searchBar: UISearchBar!
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,32 +24,18 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     tableView.rowHeight = UITableViewAutomaticDimension
     tableView.estimatedRowHeight = 135
     
+    let searchBar = UISearchBar()
     searchBar.delegate = self
+    searchBar.placeholder = "Search for Businesses"
+    searchBar.isTranslucent = true
+    searchBar.searchBarStyle = .minimal
+    self.navigationItem.titleView = searchBar
 
     Business.searchWithTerm(term: "", completion: { (businesses: [Business]?, error: Error?) -> Void in
-      
       self.businesses = businesses
       self.tableView.reloadData()
-   //   if let businesses = businesses {
-   //     for business in businesses {
-   //       print(business.name!)
-   //       print(business.address!)
-   //     }
-   //   }
     }
     )
-    
-    
-    /* Example of Yelp search with more search options specified
-     Business.searchWithTerm("Restaurants", sort: .distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: Error!) -> Void in
-     self.businesses = businesses
-     
-     for business in businesses {
-     print(business.name!)
-     print(business.address!)
-     }
-     }
-     */
   }
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -56,12 +43,6 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
       Business.searchWithTerm(term: searchText, completion: { (businesses: [Business]?, error: Error?) -> Void in
         self.businesses = businesses
         self.tableView.reloadData()
-     //   if let businesses = businesses {
-     //     for business in businesses {
-     //       print(business.name!)
-     //       print(business.address!)
-     //     }
-     //   }
       }
       )
     }
