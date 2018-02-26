@@ -26,7 +26,7 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     let searchBar = UISearchBar()
     searchBar.delegate = self
-    searchBar.placeholder = "Search for Businesses"
+    searchBar.placeholder = "Search Yelp for Businesses"
     searchBar.isTranslucent = true
     searchBar.searchBarStyle = .minimal
     self.navigationItem.titleView = searchBar
@@ -53,6 +53,10 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     // Dispose of any resources that can be recreated.
   }
   
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if businesses != nil {
       return businesses!.count
@@ -63,8 +67,19 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "BusinessCell", for: indexPath) as! BusinessCell
+    cell.selectionStyle = .none
     cell.business = businesses[indexPath.row]
     return cell
+  }
+  
+  // pass business object to detail view
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let cell = sender as! BusinessCell
+    if let indexPath = tableView.indexPath(for: cell) {
+      let business = businesses[indexPath.row]
+      let detailViewController = segue.destination as! BusinessDetailViewController
+      detailViewController.business = business
+    }
   }
   
 }

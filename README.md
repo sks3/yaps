@@ -2,7 +2,7 @@
 
 **Yaps** is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
 
-Time spent: **5** hours spent in total
+Time spent: **6** hours spent in total
 
 ## User Stories
 
@@ -16,17 +16,12 @@ The following **stretch** features are implemented:
 
 - [ ] Infinite scroll for restaurant results. (+3pt)
 - [ ] Implement map view of restaurant results. (+3pt)
-- [ ] Implement the restaurant detail page. (+2pt)
+- [x] Implement the restaurant detail page. (+2pt)
 
 The following **additional** features are implemented:
 
 * Custom App/Launch icon
-<!---
-Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
--->
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
@@ -38,7 +33,7 @@ Launch and App logo by [Aha-Soft](https://www.iconfinder.com/aha-soft) from [www
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Yelp is discontinuing v2 of its API so I will need to update this app using v3, and will be implementing more of the attributes into the views.
 
 ## License
 
